@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИИ Помощник для Собеседований</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>ИИ Помощник для Собеседований</h1>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-section="interview">Собеседование</button>
+                    <button class="nav-btn" data-section="preparation">Подготовка</button>
+                    <button class="nav-btn" data-section="feedback">Обратная связь</button>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <!-- Секция собеседования -->
+            <section id="interview" class="section active">
+                <div class="interview-container">
+                    <div class="interview-setup">
+                        <h2>Настройка собеседования</h2>
+                        <div class="setup-form">
+                            <div class="form-group">
+                                <label for="position">Позиция:</label>
+                                <select id="position">
+                                    <option value="frontend">Frontend разработчик</option>
+                                    <option value="backend">Backend разработчик</option>
+                                    <option value="fullstack">Fullstack разработчик</option>
+                                    <option value="devops">DevOps инженер</option>
+                                    <option value="qa">QA инженер</option>
+                                    <option value="pm">Project Manager</option>
+                                    <option value="analyst">Системный аналитик</option>
+                                    <option value="designer">UI/UX дизайнер</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="level">Уровень:</label>
+                                <select id="level">
+                                    <option value="junior">Junior</option>
+                                    <option value="middle">Middle</option>
+                                    <option value="senior">Senior</option>
+                                    <option value="lead">Lead</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="company-type">Тип компании:</label>
+                                <select id="company-type">
+                                    <option value="startup">Стартап</option>
+                                    <option value="product">Продуктовая компания</option>
+                                    <option value="outsource">Аутсорсинг</option>
+                                    <option value="enterprise">Корпорация</option>
+                                </select>
+                            </div>
+                            <button id="start-interview" class="btn btn-primary">
+                                <i class="fas fa-play"></i>
+                                Начать собеседование
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="interview-chat" id="interview-chat" style="display: none;">
+                        <div class="chat-header">
+                            <div class="interviewer-info">
+                                <div class="avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="info">
+                                    <h3>Анна Петрова</h3>
+                                    <p>Senior HR Manager</p>
+                                </div>
+                            </div>
+                            <div class="interview-controls">
+                                <button id="end-interview" class="btn btn-secondary">
+                                    <i class="fas fa-stop"></i>
+                                    Завершить
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-messages" id="chat-messages">
+                            <!-- Сообщения будут добавляться динамически -->
+                        </div>
+                        
+                        <div class="chat-input">
+                            <div class="input-container">
+                                <input type="text" id="user-input" placeholder="Введите ваш ответ..." disabled>
+                                <button id="send-message" class="btn btn-primary" disabled>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <div class="recording-controls">
+                                <button id="voice-input" class="btn btn-voice">
+                                    <i class="fas fa-microphone"></i>
+                                    Голосовой ввод
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция подготовки -->
+            <section id="preparation" class="section">
+                <div class="preparation-container">
+                    <h2>Подготовка к собеседованию</h2>
+                    <div class="preparation-grid">
+                        <div class="prep-card">
+                            <div class="prep-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Технические вопросы</h3>
+                            <p>Изучите типичные вопросы по вашей специализации</p>
+                            <button class="btn btn-outline">Перейти к вопросам</button>
+                        </div>
+                        
+                        <div class="prep-card">
+                            <div class="prep-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Поведенческие вопросы</h3>
+                            <p>Подготовьтесь к вопросам о вашем опыте и навыках</p>
+                            <button class="btn btn-outline">Начать подготовку</button>
+                        </div>
+                        
+                        <div class="prep-card">
+                            <div class="prep-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>О компании</h3>
+                            <p>Узнайте, какие вопросы задать интервьюеру</p>
+                            <button class="btn btn-outline">Изучить примеры</button>
+                        </div>
+                        
+                        <div class="prep-card">
+                            <div class="prep-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Резюме</h3>
+                            <p>Проанализируйте ваше резюме и подготовьте рассказ</p>
+                            <button class="btn btn-outline">Анализировать</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция обратной связи -->
+            <section id="feedback" class="section">
+                <div class="feedback-container">
+                    <h2>Результаты и обратная связь</h2>
+                    <div class="feedback-content">
+                        <div class="no-interviews">
+                            <i class="fas fa-clipboard-list"></i>
+                            <h3>Пока нет завершенных собеседований</h3>
+                            <p>Пройдите ваше первое собеседование, чтобы получить детальный анализ и рекомендации по улучшению</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 ИИ Помощник для Собеседований. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Политика конфиденциальности</a>
+                    <a href="#terms">Условия использования</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Модальное окно для загрузки -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <p>ИИ анализирует ваш профиль и подготавливает вопросы...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
